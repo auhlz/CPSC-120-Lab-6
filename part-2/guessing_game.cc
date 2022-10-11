@@ -1,5 +1,14 @@
-
-// TODO: Insert your header.
+// Farrah Ermeje
+// CPSC 120-12
+// 2022-10-11
+// farrah.e@csu.fullerton.edu
+// @farrah-e
+//
+// Lab 06-02
+// Partners: @auhlz
+//
+// Guessing game where the player must guess a secret number between 1 and 100
+//
 
 #include <cmath>
 #include <iostream>
