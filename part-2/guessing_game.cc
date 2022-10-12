@@ -14,6 +14,13 @@
 #include <iostream>
 #include <string>
 
+// int gather_guess(){
+//   std::cout << "What's your guess?> ";
+//   int their_guess{0};
+//   std::cin >> their_guess;
+//   return their_guess;
+// }
+
 // TODO: Declare a const int named kSecretNumber and initialize it to 42.
 
 const int kSecretNumber{42};
@@ -22,29 +29,35 @@ int main(int argc, char const *argv[]) {
   int last_guess = 0;
   std::string answer;
   char again = 'n';
-  bool k{false};
 
   std::cout << "Hi - I'm a computer and I've thought of a number between "
                "1 and 100.\n";
   std::cout << "Let's play a guessing game...\n";
 
-do {
+while(guess != kSecretNumber){
+  // guess = gather_guess();
   std::cout << "What's your guess?> ";
   std::cin >> guess;
-  if(! (guess >= 1) && (guess <=100))
+  if(! (guess >= 1) && (guess <=100)){ 
     std::cout << "Please guess a number between 1 and 100.\n";
-  break;
-
-
-  } while(guess == kSecretNumber); {
-  std::cout << "Hooray! You guessed the secret number!!";
-  std::cout << "Do you want to play again? (y or n)> ";
-  }
+  if (std::abs(kSecretNumber - guess) < std::abs(kSecretNumber - last_guess)) {
+    std::cout << "You're getting warmer!\n";
+} else {
+    std::cout << "You're getting colder.\n";
+}
+  } else if (guess == kSecretNumber) {
+  std::cout << "Hooray! You guessed the secret number!! \n";
+  std::cout << "Do you want to play again? (y or n)> \n";
   std::cin >> again;
-
   if (again == 'y'){ 
     std::cout << "Great!! I'd love to play again... \n";
+    continue;
+  }
+  } else {
+    std::cout << "Nope - that's not it. \n";
   } 
+  }
+
   // while(guess != kSecretNumber)
   //   std::cout << "Nope - that's not it.";
 
