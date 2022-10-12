@@ -16,14 +16,39 @@
 
 // TODO: Declare a const int named kSecretNumber and initialize it to 42.
 
+const int kSecretNumber{42};
 int main(int argc, char const *argv[]) {
   int guess = 0;
   int last_guess = 0;
   std::string answer;
+  char again = 'n';
+  bool k{false};
 
   std::cout << "Hi - I'm a computer and I've thought of a number between "
                "1 and 100.\n";
   std::cout << "Let's play a guessing game...\n";
+
+do {
+  std::cout << "What's your guess?> ";
+  std::cin >> guess;
+  if(! (guess >= 1) && (guess <=100))
+    std::cout << "Please guess a number between 1 and 100.\n";
+  break;
+
+
+  } while(guess == kSecretNumber); {
+  std::cout << "Hooray! You guessed the secret number!!";
+  std::cout << "Do you want to play again? (y or n)> ";
+  }
+  std::cin >> again;
+
+  if (again == 'y'){ 
+    std::cout << "Great!! I'd love to play again... \n";
+  } 
+  // while(guess != kSecretNumber)
+  //   std::cout << "Nope - that's not it.";
+
+
 
   // TODO: Write an loop that will continue until the player decides to quit
   // TODO: Inside the loop, prompt the player for their guess
