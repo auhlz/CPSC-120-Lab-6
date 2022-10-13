@@ -24,25 +24,27 @@ int main(int argc, char const *argv[]) {
   std::cout << "Hi - I'm a computer and I've thought of a number between "
                "1 and 100.\n";
   std::cout << "Let's play a guessing game...\n";
-  while (again == 'y') {
+  bool is_game_over{true};
+  while (is_game_over) {
     std::cout << "what's your guess?> ";
     std::cin >> guess;
-    if (!((guess >= 1) && (guess <= 100))) {
+    if (guess < 1) {
       std::cout << "Please guess a number between 1 and 100.\n";
-      std::cout << "what's your guess?> ";
-      std::cin >> guess;
     }
-    if (guess != k_secret_number) {
+    if (guess > 100) {
+      std::cout << "Please guess a number between 1 and 100.\n";
+    }
+    if (guess != k_secret_number && guess >= 1 && guess <= 100) {
       std::cout << "Nope - that's not it. \n";
-      std::cout << "what's your guess?> ";
-      std::cin >> last_guess;
       if (std::abs(k_secret_number - guess) <
           std::abs(k_secret_number - last_guess)) {
         std::cout << "You're getting warmer!\n";
       } else {
         std::cout << "You're getting colder.\n";
       }
-    } else if (guess == k_secret_number) {
+      last_guess = guess;
+    }
+    if (guess == k_secret_number) {
       std::cout << "Hooray!  You guesed the secret number!! \n";
       again = 'n';
       std::cout << "Do you want to play again? (y or n)> ";
